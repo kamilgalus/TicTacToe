@@ -19,7 +19,7 @@ namespace TicTac
                 k1.NarysujKrate();
                 wzorPionka = op1.KogoKolej(iterator);
                 k1.DodajPionek(iterator, wzorPionka);
-                czyWygrana = op1.SprawdzenieWygranej(k1.ZwrocKratke(), wzorPionka);
+                czyWygrana = op1.SprawdzenieWygranej(k1.ZwrocKratke(),wzorPionka);
                 iterator++;
             }
             while (czyWygrana == false);
