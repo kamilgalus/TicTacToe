@@ -7,19 +7,37 @@ namespace TicTac
     class Znak
     {
         private int miejsceZnaczka;
-        private char pionek;
+        private char pionek;       
 
         public int WybierzMiejsce(char wzor)
         {
-            Console.Write("\n"+"\tPodaj miejsce gdzie chcesz postawic {0} [1-9]:", wzor);
-            miejsceZnaczka = int.Parse(Console.ReadLine());
-            return miejsceZnaczka;
+            do
+            {
+                try
+                {
+                    Console.Write("\n" + "\tPodaj miejsce gdzie chcesz postawic {0} [1-9]:", wzor);
+                    miejsceZnaczka = int.Parse(Console.ReadLine());
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine("\t\tNie wprowadziles cyfry", ex);
+                }
+
+                Console.Write("\n" + "\tPodaj miejsce gdzie chcesz postawic {0} [1-9]:", wzor);
+                miejsceZnaczka = int.Parse(Console.ReadLine());               
+                return miejsceZnaczka;                                 
+            }
+            while (miejsceZnaczka > 9 || miejsceZnaczka < 1);
         }
 
         public void NadajWzorPionka(char wzor)
         {
             pionek = wzor;
         }
-      
+
+
+        
+
+
     }
 }
