@@ -44,5 +44,7 @@ namespace TicTac
             Console.WriteLine("\t Wygrał zawodnik:  {0}", znakPionka);
         }
 
+        
+
     }
 }
