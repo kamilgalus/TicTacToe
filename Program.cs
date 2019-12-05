@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace TicTac
 {
@@ -7,7 +7,7 @@ namespace TicTac
         static void Main()
         {
             Kratka krataGlowna = new Kratka();
-            Operacje operacjeGlowne = new Operacje();
+            Operacje operacjaGlowna = new Operacje();
             bool czyWygrana;
             int iterator = 0;
             char wzorPionka;
@@ -17,16 +17,16 @@ namespace TicTac
             {              
                 Console.Clear();
                 krataGlowna.NarysujKrate();
-                wzorPionka = operacjeGlowne.KogoKolej(iterator);
+                wzorPionka = operacjaGlowna.KogoKolej(iterator);
                 krataGlowna.DodajPionek(iterator, wzorPionka, krataGlowna.ZwrocKratke());
-                czyWygrana = operacjeGlowne.SprawdzenieWygranej(krataGlowna.ZwrocKratke(), wzorPionka);
+                czyWygrana = operacjaGlowna.SprawdzenieWygranej(krataGlowna.ZwrocKratke(), wzorPionka);
                 iterator++;
             }
             while (czyWygrana == false);
             {
                 Console.Clear();
                 krataGlowna.NarysujKrate();
-                operacjeGlowne.KomunikatWygranej(wzorPionka);
+                operacjaGlowna.KomunikatWygranej(wzorPionka);
             }
                 
             

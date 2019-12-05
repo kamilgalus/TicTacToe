@@ -115,7 +115,7 @@ namespace TicTac
 
         public void DodajPionek(int nrPionka, char wzor , char[,] kratka)
         {
-            int miejsce;
+            int miejsce=0;
             bool czyZajete;
 
             tablicaZnakow[nrPionka] = new Znak();

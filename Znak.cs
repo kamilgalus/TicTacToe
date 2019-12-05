@@ -12,32 +12,26 @@ namespace TicTac
         public int WybierzMiejsce(char wzor)
         {
             do
-            {
-                try
-                {
-                    Console.Write("\n" + "\tPodaj miejsce gdzie chcesz postawic {0} [1-9]:", wzor);
-                    miejsceZnaczka = int.Parse(Console.ReadLine());
-                }
-                catch (FormatException ex)
-                {
-                    Console.WriteLine("\t\tNie wprowadziles cyfry", ex);
-                }
-
-                Console.Write("\n" + "\tPodaj miejsce gdzie chcesz postawic {0} [1-9]:", wzor);
-                miejsceZnaczka = int.Parse(Console.ReadLine());               
-                return miejsceZnaczka;                                 
+            {              
+                    try
+                    {
+                        Console.Write("\n" + "\tPodaj miejsce gdzie chcesz postawic {0} [1-9]:", wzor);
+                        miejsceZnaczka = int.Parse(Console.ReadLine());
+                    }
+                    catch (FormatException ex)
+                    {
+                        Console.WriteLine("\t\tNie wprowadziles cyfry", ex);
+                    }                                                               
             }
             while (miejsceZnaczka > 9 || miejsceZnaczka < 1);
+            return miejsceZnaczka;
         }
 
         public void NadajWzorPionka(char wzor)
         {
             pionek = wzor;
         }
-
-
         
-
 
     }
 }
