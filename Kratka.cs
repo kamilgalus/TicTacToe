@@ -44,11 +44,6 @@ namespace TicTac
             kratkaPomocnicza[4,0]= '7';
             kratkaPomocnicza[4,2]= '8';
             kratkaPomocnicza[4,4]= '9';
-
-
-
-
-
         }
 
 
@@ -70,22 +65,7 @@ namespace TicTac
                 Console.WriteLine();               
             }            
         }
-
-
-        public void NarysujKratkePomocniczna()
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                Console.Write("\t\t");
-                for (int j = 0; j < 5; j++)
-                {
-                    Console.Write(kratkaPomocnicza[i,j]);
-                }
-                Console.WriteLine();
-            }
-        }
-
-
+     
         public char[,] ZwrocKratke()
         {
             return kratka;
@@ -133,15 +113,41 @@ namespace TicTac
 
 
 
-        public void DodajPionek(int nrPionka, char wzor)
+        public void DodajPionek(int nrPionka, char wzor , char[,] kratka)
         {
             int miejsce;
+            bool czyZajete;
 
             tablicaZnakow[nrPionka] = new Znak();
-            miejsce = tablicaZnakow[nrPionka].WybierzMiejsce(wzor);
-                          
+            do
+            {
+                miejsce = tablicaZnakow[nrPionka].WybierzMiejsce(wzor);
+                czyZajete = SprawdzenieWolnegoMiejsca(kratka, miejsce);
+                if(czyZajete==false)
+                {
+                    Console.WriteLine("\t\tTo miejsce jest zajete");
+                }
+            }
+            while (czyZajete == false);
+
                 tablicaZnakow[nrPionka].NadajWzorPionka(wzor);
                 WstawPionek(miejsce,wzor,kratka);                                                    
+        }
+
+
+        public bool SprawdzenieWolnegoMiejsca(char[,] krata, int miejsce)
+        {
+            if (miejsce == 1 && krata[0, 0] == ' ') return true;
+            else if (miejsce == 2 && krata[0, 2] == ' ') return true;
+            else if (miejsce == 3 && krata[0, 4] == ' ') return true;
+            else if (miejsce == 4 && krata[2, 0] == ' ') return true;
+            else if (miejsce == 5 && krata[2, 2] == ' ') return true;
+            else if (miejsce == 6 && krata[2, 4] == ' ') return true;
+            else if (miejsce == 7 && krata[4, 0] == ' ') return true;
+            else if (miejsce == 8 && krata[4, 2] == ' ') return true;
+            else if (miejsce == 9 && krata[4, 4] == ' ') return true;
+            else
+                return false;
         }
 
     }
